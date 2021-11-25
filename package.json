@@ -1,0 +1,20 @@
+{
+  "name": "mekari-api-hmac-example-nodejs",
+  "version": "0.1.0",
+  "description": "Code Example to create HMAC authenticated HTTP request to Mekari API in Node.js ",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mekari-engineering/mekari-api-hmac-example-nodejs.git"
+  },
+  "author": "Alfiana Sibuea <alfian.sibuea@mekari.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mekari-engineering/mekari-api-hmac-example-nodejs/issues"
+  },
+  "homepage": "https://github.com/mekari-engineering/mekari-api-hmac-example-nodejs#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0"
+  }
+}
