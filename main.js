@@ -6,9 +6,9 @@ require('dotenv').config();
 /**
  * Generate authentication headers based on method and path
  */
-function generate_headers(method, path) {
+function generate_headers(method, pathWithQueryParam) {
   let datetime = new Date().toUTCString();
-  let requestLine = `${method} ${path} HTTP/1.1`;
+  let requestLine = `${method} ${pathWithQueryParam} HTTP/1.1`;
   let payload = [`date: ${datetime}`, requestLine].join("\n");
   let signature = crypto.createHmac('SHA256', process.env.MEKARI_API_CLIENT_SECRET).update(payload).digest('base64');
 
@@ -22,6 +22,7 @@ function generate_headers(method, path) {
 // Set method and path for the request
 let method = 'POST';
 let path = '/v2/klikpajak/v1/efaktur/out';
+let queryParam = '?auto_approval=false';
 let headers = {
   'X-Idempotency-Key': '1234'
 };
@@ -30,7 +31,7 @@ let body = {/* request body */};
 const options = {
   method: method,
   url: `${process.env.MEKARI_API_BASE_URL}${path}`,
-  headers: {...generate_headers(method, path), ...headers}
+  headers: {...generate_headers(method, path + queryParam), ...headers}
 }
 
 // Initiate request
